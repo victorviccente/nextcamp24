@@ -1,8 +1,20 @@
-import { PhoneIcon, CalendarIcon, UsersIcon, ChurchIcon, CreditCardIcon, HeartIcon, ImageIcon } from "lucide-react"
-import { FaHandsHelping} from 'react-icons/fa'
+import React from 'react'
+import { PhoneIcon, CalendarIcon, UsersIcon, ChurchIcon, CreditCardIcon, HeartIcon, ImageIcon, ClipboardIcon } from "lucide-react"
+import { FaHandsHelping } from 'react-icons/fa'
 import nextimage from '../assets/next1.jpg'
+import qrCodeImage from '../assets/qr-code.jpg'
 
 export default function GCBarraSundayNextCampLandingPage() {
+  const pixKey = "00020126330014BR.GOV.BCB.PIX0111190070187105204000053039865802BR5922VICTOR CALISTO VICENTE6014RIO DE JANEIRO622605223LqIwM8XfbZKjjSy0MiTDC63040A8D"
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(pixKey).then(() => {
+      alert("Chave PIX copiada para a área de transferência!")
+    }, (err) => {
+      console.error('Erro ao copiar: ', err)
+    })
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#F9A31A] to-[#EDA332] text-gray-800">
       <div className="container mx-auto px-4 py-8 md:py-16">
@@ -64,14 +76,14 @@ export default function GCBarraSundayNextCampLandingPage() {
               </div>
 
               <div className="bg-[#F9A31A] text-white p-6 rounded-xl shadow-md">
-  <h3 className="text-xl font-semibold mb-3 flex items-center">
-    <FaHandsHelping className="mr-2 h-6 w-6" /> {/* Ícone adicionado aqui */}
-    Semear na vida de um jovem
-  </h3>
-  <p className="text-sm">
-    Plante sementes na vida de um jovem, permitindo que ele viva experiências únicas com Deus no sobrenatural.
-  </p>
-</div>
+                <h3 className="text-xl font-semibold mb-3 flex items-center">
+                  <FaHandsHelping className="mr-2 h-6 w-6" />
+                  Semear na vida de um jovem
+                </h3>
+                <p className="text-sm">
+                  Plante sementes na vida de um jovem, permitindo que ele viva experiências únicas com Deus no sobrenatural.
+                </p>
+              </div>
             </div>
 
             <blockquote className="italic text-gray-700 border-l-4 border-[#00A88F] pl-4 py-2 mb-8 bg-gray-100 rounded-r-lg">
@@ -86,13 +98,11 @@ export default function GCBarraSundayNextCampLandingPage() {
                 Next Camp 2023
               </h3>
               <div className="relative w-full h-80 rounded-xl overflow-hidden shadow-lg">
-              <div className="relative w-full h-80 rounded-xl overflow-hidden shadow-lg">
-              <img
-                src={nextimage}
-                alt="Descrição da imagem"
-                className="w-full h-full object-cover rounded-xl"
-              />
-             </div>
+                <img
+                  src={nextimage}
+                  alt="Next Camp 2023"
+                  className="w-full h-full object-cover rounded-xl"
+                />
               </div>
               <p className="text-gray-700 mt-4 text-center italic">
                 Veja como foi incrível o Next Camp do ano passado! Ajude mais jovens a terem essa experiência em 2024.
@@ -126,12 +136,12 @@ export default function GCBarraSundayNextCampLandingPage() {
             </div>
 
             <div className="text-center">
-            <a href="https://api.whatsapp.com/send?phone=5521973779257&text=OL%C3%81!!%20GOSTARIA%20DE%20AJUDAR%20NO%20NEXT%20CAMP%202024!!%0A%0AComo%20posso%20ajudar%3F%3F" target="_blank" rel="noopener noreferrer">
-              <button className="bg-[#00A88F] hover:bg-[#008C76] text-white text-lg font-bold py-4 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg flex items-center justify-center mx-auto">
-                <PhoneIcon className="w-6 h-6 mr-2" />
-                Contate-nos via WhatsApp
-              </button>
-            </a>
+              <a href="https://api.whatsapp.com/send?phone=5521973779257&text=OL%C3%81!!%20GOSTARIA%20DE%20AJUDAR%20NO%20NEXT%20CAMP%202024!!%0A%0AComo%20posso%20ajudar%3F%3F" target="_blank" rel="noopener noreferrer">
+                <button className="bg-[#00A88F] hover:bg-[#008C76] text-white text-lg font-bold py-4 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg flex items-center justify-center mx-auto">
+                  <PhoneIcon className="w-6 h-6 mr-2" />
+                  Contate-nos via WhatsApp
+                </button>
+              </a>
               <p className="mt-4 text-gray-600">
                 Clique no botão acima ou envie uma mensagem para: <br />
                 <span className="font-semibold text-lg">(21) 97377-9257</span>
@@ -142,6 +152,30 @@ export default function GCBarraSundayNextCampLandingPage() {
           </div>
         </div>
 
+        {/* New PIX section */}
+        <div className="max-w-4xl mx-auto bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden mt-8">
+          <div className="p-6 md:p-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#00A88F] mb-8 text-center">Faça sua doação via PIX</h2>
+            
+            <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+              <div className="w-64 h-64">
+                <img src={qrCodeImage} alt="QR Code PIX" className="w-full h-full object-contain" />
+              </div>
+              
+              <div className="text-center md:text-left">
+                <p className="text-lg font-semibold mb-2">Chave PIX:</p>
+                <p className="text-sm bg-gray-100 p-2 rounded mb-4 break-all">{pixKey}</p>
+                <button 
+                  onClick={copyToClipboard}
+                  className="bg-[#00A88F] hover:bg-[#008C76] text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out flex items-center justify-center mx-auto md:mx-0"
+                >
+                  <ClipboardIcon className="w-5 h-5 mr-2" />
+                  Copiar Chave PIX
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
         
       </div>
     </div>
