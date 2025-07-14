@@ -1,11 +1,11 @@
 import React from 'react';
-import GCBarraSundayNextCampLandingPage from './components/GCBarraSundayNextCampLandingPageGCBarraSundayNextCampLandingPage';
 import './index.css';
+import NextCampFundraisingPage from './components/GCBarraSundayNextCampLandingPageGCBarraSundayNextCampLandingPage';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <GCBarraSundayNextCampLandingPage />
+      <NextCampFundraisingPage />
     </div>
   );
 };
