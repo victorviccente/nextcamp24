@@ -13,7 +13,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // --- ARQUIVOS LOCAIS ---
 // Certifique-se que estas imagens existem nos caminhos especificados.
-import next from "../assets/next1.jpg";
+import next from "../assets/about.jpeg";
 import qr from "../assets/qr-code.jpeg";
 
 // Imagens do carousel - adicione suas imagens aqui
@@ -591,7 +591,7 @@ const NextCampLP: React.FC = () => {
                       <h3 className="text-xl font-bold text-white mb-4">
                         1. PIX QR Code
                       </h3>
-                      <div className=" p-2 sm:p-4 rounded-xl shadow-lg inline-block">
+                      <div className="p-2 sm:p-4 rounded-xl shadow-lg inline-block">
                         <img
                           src={qr}
                           alt="QR Code PIX"
