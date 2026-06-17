@@ -1,5 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&family=Press+Start+2P&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #4BA3C7;
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Anton', 'Inter', sans-serif;
+  }
+  .font-pixel {
+    font-family: 'Press Start 2P', monospace;
+  }
+
+  /* Camuflagem pixelada 8-bit (painel verde-militar) */
+  .bg-camo-pixel {
+    background-color: #3c4a2a;
+    background-image:
+      conic-gradient(from 0deg at 25% 25%, #4f5d34 0 25%, transparent 0 100%),
+      conic-gradient(from 0deg at 75% 60%, #2b3520 0 25%, transparent 0 100%),
+      conic-gradient(from 0deg at 50% 85%, #5a6b3e 0 25%, transparent 0 100%);
+    background-size: 48px 48px, 64px 64px, 40px 40px;
+    image-rendering: pixelated;
+  }
+
+  /* Céu azul com leve gradiente outdoor */
+  .bg-sky-clouds {
+    background: linear-gradient(180deg, #7ec8e3 0%, #4ba3c7 60%, #2e7fa8 100%);
+  }
+
+  /* Gramado pixelado (base de seções / rodapé) */
+  .bg-grass-pixel {
+    background-color: #4f5d34;
+    background-image:
+      linear-gradient(#5a6b3e 50%, transparent 50%),
+      linear-gradient(90deg, rgba(34, 31, 26, 0.1) 1px, transparent 1px);
+    background-size: 16px 16px, 16px 16px;
+    image-rendering: pixelated;
+  }
+
+  /* Halftone / grunge (overlay do banner laranja) */
+  .bg-halftone {
+    background-image: radial-gradient(rgba(34, 31, 26, 0.45) 1.5px, transparent 1.6px);
+    background-size: 6px 6px;
+  }
+
+  /* Textura grunge de ruído procedural */
+  .bg-grunge-noise {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/></svg>");
+    mix-blend-mode: multiply;
+  }
+
+  /* Recorte pixelado para caixas tipo sticker */
+  .clip-sticker {
+    clip-path: polygon(0 6%, 3% 0, 97% 0, 100% 6%, 100% 94%, 97% 100%, 3% 100%, 0 94%);
+  }
+
+  .text-stroke-charcoal {
+    -webkit-text-stroke: 2px #221f1a;
+  }
+}
